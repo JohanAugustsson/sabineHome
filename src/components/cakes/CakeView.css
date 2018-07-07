@@ -1,0 +1,40 @@
+.container-cakeview ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-cakeview li{
+  list-style-type: none;
+  flex: 2 2;
+  width: 200px;
+  max-width: 200px;
+  min-width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  margin: 10px;
+  -webkit-box-shadow: 1px 2px 15px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 1px 2px 15px 0px rgba(0,0,0,0.5);
+  box-shadow: 1px 2px 15px 0px rgba(161,160,160,0.5);
+  overflow: hidden;
+}
+.container-cakeview img {
+  width: 120%;
+  max-height: 180px;
+}
+.container-cakeview h1 {
+  flex: 1 1;
+}
+
+.container-cakeview li:hover{
+  cursor: pointer;
+  filter: brightness(105%);
+}
+
+.container-cakeview li:hover img {
+  transform: scale(1.05, 1.05);
+}
+
+.container-cakeview .imgOfCake {
+  max-height: 180px;
+  overflow: hidden;
+}

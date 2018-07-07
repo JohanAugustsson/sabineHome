@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  color: #373737;
+}
+
+
+h1{
+  font-family: 'Indie Flower', sans-serif;
+}
+
+.title {
+  font-family: 'Indie Flower', sans-serif;
+  font-size: 20px;
+  padding-left: 5px;
+}

@@ -1,0 +1,57 @@
+.container-cake {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper-header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+div {
+  border: 1px red solid;
+}
+
+.container-cake .wrapper-header img {
+  width: 450px;
+  max-width: 100%;
+  max-height: 350px;
+}
+.container-cake .wrapper-howToCook {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.container-cake .wrapper-howToCook ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.container-cake .wrapper-howToCook ul li div{
+  display: flex;
+  flex-direction: row;
+
+}
+.container-cake .wrapper-howToCook ul li img {
+  max-width: 200px;
+  max-height: 200px;
+  padding: 5px;
+}
+
+
+.container-cake .mainText {
+  max-width: 40%;
+  min-width: 200px;
+  padding: 5px;
+}
+
+.container-cake .ingridienceList li {
+  display: flex;
+  width: 100%;
+  max-width: 200px;
+  justify-content: space-between;
+}
