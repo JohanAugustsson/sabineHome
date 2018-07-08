@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import { saveCakeToDb } from '../../actions/cakeActions';
+import { saveCakeToDb,saveFileToDb } from '../../actions/cakeActions';
 import { connect } from 'react-redux';
+import AvatarImageCropper from 'react-avatar-image-cropper';
+import AvatarImage from '../image/AvatarImage'
 import './CreateCake.css'
 
 
 
 
 class CreateCake extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      mainPictureUrl: '',
+
+    }
+  }
 
   handelSave = () =>{
     const { dispatch } = this.props;
@@ -32,7 +41,27 @@ class CreateCake extends Component {
     dispatch(saveCakeToDb(obj));
 
   }
+
+
+
+  apply = (file) => {
+    // handle the blob file you want
+    // such as get the image src
+    const { dispatch } = this.props;
+
+    dispatch(saveFileToDb(file)).then( (a)=> {
+      this.setState({
+        mainPictureUrl: a.payload
+      })
+    });
+
+    //var src = window.URL.createObjectURL(file);
+    //console.log(file);
+}
+
   render(){
+    const { mainPictureUrl } = this.state;
+
     return(
       <div className='container-CreateCake'>
 
@@ -44,7 +73,11 @@ class CreateCake extends Component {
         <label>slutfras <input type='text' /></label>
 
         <button onClick={this.handelSave}> Spara </button>
-
+        <div style={{ width: '250px', height: '250px', margin: 'auto', border: '1px solid black' }}>
+         <AvatarImageCropper apply={this.apply} />
+         { mainPictureUrl && <img src={mainPictureUrl} height='250px' width='250px' /> }
+         <AvatarImage />
+       </div>
       </div>
     );
   }
@@ -53,5 +86,7 @@ class CreateCake extends Component {
 const mapStateToProps = (state) =>({
 
 })
+
+
 
 export default connect(mapStateToProps)(CreateCake);

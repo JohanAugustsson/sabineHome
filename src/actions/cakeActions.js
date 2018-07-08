@@ -21,7 +21,7 @@ const getCakesFromDB = () => async (dispatch) => {
 
 
 const saveCakeToDb = (cake) => async (dispatch) => {
-  const newCake = db.collection("cakes").doc();
+  const newCake = db.firestore().collection("cakes").doc(); // skapar en referens och vi får med id
   newCake.set({
     ...cake, id: newCake.id
   })
@@ -33,7 +33,29 @@ const saveCakeToDb = (cake) => async (dispatch) => {
 
 }
 
-export { getCakesFromDB, saveCakeToDb };
+
+
+
+const saveFileToDb = (file) => async (dispatch) => {
+  var storageRef = db.storage().ref();
+  const imageRef = storageRef.child('cakes/apple11.jpg')
+  //const url = console.log(imageRef.getDownloadURL());
+
+  return imageRef.put(file).then((response)=>{
+    return imageRef.getDownloadURL();
+
+  }).then((image)=>{
+    console.log('file uploaded :)',image);
+    return dispatch({type:"help me", payload: image});
+  })
+}
+
+
+var storageRef = db.storage().ref();
+const imageRef = storageRef.child('cakes/')
+console.log(imageRef.getDownloadURL());
+
+export { getCakesFromDB, saveCakeToDb,saveFileToDb };
 
 // const firebase = require("firebase");
 // // Required for side-effects

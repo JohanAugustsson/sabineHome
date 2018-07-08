@@ -1,6 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/database';
 import 'firebase/firestore';
+import 'firebase/storage';
+import 'firebase/auth';
 
 
 
@@ -29,7 +31,8 @@ firestore.settings(settings);
 firebase.firestore();
 
 // export firestore
-var db = firebase.firestore();
+
+const db = firebase;
 export default db;
 
 

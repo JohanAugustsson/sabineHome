@@ -6,6 +6,7 @@
     "firebase": "^5.2.0",
     "firebase-admin": "^5.12.1",
     "react": "^16.4.1",
+    "react-avatar-image-cropper": "^1.1.7",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-redux-firebase": "^2.1.6",
