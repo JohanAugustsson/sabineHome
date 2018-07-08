@@ -21,7 +21,7 @@ class Cake extends Component {
       return (
         <li key={index}>
 
-          <div>{index+1}: { item.description }</div>
+          <p>{index+1}: { item.description }</p>
           { images && <div> {images} </div>}
         </li>
       )
@@ -29,20 +29,37 @@ class Cake extends Component {
   }
 
   createContent = (Obj) => {
-    console.log(Obj);
+    //console.log(Obj);
     return Obj.map((str,index) => <p key={index}> {str} </p>)
+  }
+
+  createEnd = (Obj) => {
+    //console.log(Obj);
+    const image = Obj.img ? <img src={Obj.img} alt="cake" /> : null;
+    const str = Obj.text ? (<p> {Obj.text} </p>) : null;
+
+    return (
+      <Fragment>
+        { image }
+        { str }
+      </Fragment>
+    )
   }
 
   render(){
     const cakeId = this.props.match.params.id;
     const { cakes } = this.props;
-    const cake = cakes ? cakes[cakeId-1] : null;
+    console.log(cakeId);
+    console.log(cakes);
+    const cake = cakes ? cakes[cakeId] : null;
+    console.log(cake);
     //console.log(cake);
     const ingridience = cake && cake.ingridience ?  this.createList(cake.ingridience) : null;
     const howToCook = cake && cake.howtocook ?  this.createListOfHowToCook(cake.howtocook) : null;
-    const content = cake && cake.description.content ?  this.createContent(cake.description.content) : null;
-    const description = cake && cake.description.main ? cake.description.main : null;
-    const imgOfCake = cake && cake.img ? <img src={cake.img} alt="cake" /> : " img missing"
+    const content = cake && cake.description && cake.description.content ?  this.createContent(cake.description.content) : null;
+    const description = cake && cake.description && cake.description.main ? cake.description.main : null;
+    const imgOfCake = cake && cake.img ? <img src={cake.img} alt="cake" /> : " img missing";
+    const end = cake && cake.description && cake.description.end ? this.createEnd(cake.description.end) : "end missing";
     return(
       <div className='container-cake'>
         {cake &&
@@ -62,11 +79,14 @@ class Cake extends Component {
           <ul> { howToCook } </ul>
         </div>
 
-        <div>
+        <div className='wrapper-content'>
           { content }
         </div>
 
-        
+        <div className='wrapper-end'>
+          { end }
+        </div>
+
       </div>
     );
   }
@@ -75,7 +95,7 @@ class Cake extends Component {
 
 
 const mapStateToProps = (state) =>({
-  cakes: state.firestore.ordered.cakes
+  cakes: state.firestore.data.cakes
 })
 
 const listenersFirestore = (props) => ([

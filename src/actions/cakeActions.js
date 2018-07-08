@@ -15,17 +15,25 @@ function resolveAfter2Seconds() {
 
 const getCakesFromDB = () => async (dispatch) => {
   await resolveAfter2Seconds();
-
-
   return dispatch({type: CAKE_LOADED, payload: cakesList  });
 }
 
 
 
+const saveCakeToDb = (cake) => async (dispatch) => {
+  const newCake = db.collection("cakes").doc();
+  newCake.set({
+    ...cake, id: newCake.id
+  })
+  .then( ()=>{
+    console.log('kakan har lagts till');
+  }).catch(()=>{
+    console.log('något gick fel');
+  })
 
-export { getCakesFromDB };
+}
 
-
+export { getCakesFromDB, saveCakeToDb };
 
 // const firebase = require("firebase");
 // // Required for side-effects

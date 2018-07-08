@@ -3,18 +3,25 @@
   flex-direction: column;
   justify-content: center;
 }
+.container-cake img {
+  border-radius: 5px;
+}
+
 
 .wrapper-header {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  margin-top: 60px;
 }
 
 div {
   border: 1px red solid;
 }
 
-.container-cake .wrapper-header img {
+.container-cake .wrapper-header img,
+.container-cake .wrapper-end img
+ {
   width: 450px;
   max-width: 100%;
   max-height: 350px;
@@ -24,6 +31,7 @@ div {
   justify-content: center;
   flex-wrap: nowrap;
   flex-direction: column;
+  padding: 3em;
 }
 
 .container-cake .wrapper-howToCook ul li {
@@ -34,6 +42,7 @@ div {
 .container-cake .wrapper-howToCook ul li div{
   display: flex;
   flex-direction: row;
+  padding-left: 2em;
 
 }
 .container-cake .wrapper-howToCook ul li img {
@@ -46,7 +55,7 @@ div {
 .container-cake .mainText {
   max-width: 40%;
   min-width: 200px;
-  padding: 5px;
+  padding: 0 3em 3em 1em;
 }
 
 .container-cake .ingridienceList li {
@@ -54,4 +63,21 @@ div {
   width: 100%;
   max-width: 200px;
   justify-content: space-between;
+}
+
+.container-cake .wrapper-content {
+  padding: 3em;
+}
+.container-cake .wrapper-content p {
+  padding: 1em;
+}
+
+.container-cake .wrapper-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 3em;
+}
+.container-cake .wrapper-end p{
+  padding-left: 1em;
 }
