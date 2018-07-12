@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { saveCakeToDb,saveFileToDb } from '../../actions/cakeActions';
 import { connect } from 'react-redux';
 import AvatarImageCropper from 'react-avatar-image-cropper';
-import AvatarImage from '../image/AvatarImage'
-import './CreateCake.css'
+import AvatarImage from '../image/AvatarImage';
+import './CreateCake.css';
 
 
 
@@ -73,11 +73,12 @@ class CreateCake extends Component {
         <label>slutfras <input type='text' /></label>
 
         <button onClick={this.handelSave}> Spara </button>
-        <div style={{ width: '250px', height: '250px', margin: 'auto', border: '1px solid black' }}>
-         <AvatarImageCropper apply={this.apply} />
-         { mainPictureUrl && <img src={mainPictureUrl} height='250px' width='250px' /> }
+
+        <div style={{width: 250}}>
          <AvatarImage />
-       </div>
+        </div>
+         <AvatarImage />
+
       </div>
     );
   }

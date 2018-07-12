@@ -1,3 +1,5 @@
+// import { FETCHED_IMAGES, FETCHING_IMAGES } from '../actions/ImageActions'
+
 
 const initialState = {
   data: [],
@@ -14,5 +16,6 @@ const cakeReducer = (state = initialState, action) =>{
       return state;
   }
 }
+
 
 export { cakeReducer };

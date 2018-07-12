@@ -1,8 +1,11 @@
 import db from '../config/firestore'
 const cakesList = require('../mock/cakes');
 
-export const CAKE_LOADED = 'CAKE_LOADED'
+// setup action and reducer
+export const CAKE_LOADED = 'CAKE_LOADED';
 
+// setup path
+export const IMAGE_URL_PATH = 'images/RCpdAxXTbu5mMlM2eRrC';
 
 function resolveAfter2Seconds() {
   return new Promise(resolve => {
@@ -18,9 +21,13 @@ const getCakesFromDB = () => async (dispatch) => {
   return dispatch({type: CAKE_LOADED, payload: cakesList  });
 }
 
+const addUrlToListOfImages = (url) => {
 
+
+}
 
 const saveCakeToDb = (cake) => async (dispatch) => {
+
   const newCake = db.firestore().collection("cakes").doc(); // skapar en referens och vi får med id
   newCake.set({
     ...cake, id: newCake.id
@@ -37,23 +44,26 @@ const saveCakeToDb = (cake) => async (dispatch) => {
 
 
 const saveFileToDb = (file) => async (dispatch) => {
+
+  const fileName = new Date().getTime() + "-" + file.name ; // set filename
   var storageRef = db.storage().ref();
-  const imageRef = storageRef.child('cakes/apple11.jpg')
-  //const url = console.log(imageRef.getDownloadURL());
+  const imageRef = storageRef.child(`cakes/${fileName}`)
+
 
   return imageRef.put(file).then((response)=>{
     return imageRef.getDownloadURL();
 
-  }).then((image)=>{
-    console.log('file uploaded :)',image);
-    return dispatch({type:"help me", payload: image});
+  }).then((url)=>{
+    console.log('file uploaded :)',url);
+     db.firestore().collection('images').add({ url, id: fileName , origin: file.name });
+    return dispatch({type:"help me", payload: url});
   })
 }
 
 
-var storageRef = db.storage().ref();
-const imageRef = storageRef.child('cakes/')
-console.log(imageRef.getDownloadURL());
+
+
+
 
 export { getCakesFromDB, saveCakeToDb,saveFileToDb };
 

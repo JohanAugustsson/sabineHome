@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveCakeToDb,saveFileToDb } from '../../actions/cakeActions';
 import AvatarImageCropper from 'react-avatar-image-cropper';
-
+import ImageList from '../image/ImageList';
 
 class AvatarImage extends Component {
   state = {
@@ -22,15 +22,21 @@ class AvatarImage extends Component {
     this.setState({url:''})
   }
 
+  setImage = (url) => {
+    this.setState({url})
+  }
+
   render(){
     const { url } = this.state;
     return(
-
-        <div style={{ width: '250px', height: '250px', margin: 'auto', border: '1px solid black' }}>
-         { !url && <AvatarImageCropper apply={this.apply} />}
-         { url && <img src={url} height='250px' width='250px' /> }
-       </div>
-
+      <div>
+        <ImageList setImage={this.setImage}/>
+        <div style={{ width: '250px', height: '250px', margin: 'auto' }}>
+           { !url && <AvatarImageCropper apply={this.apply} />}
+           { url && <img src={url} height='250px' width='250px' /> }
+         </div>
+       <button onClick={()=> this.setState({url:''})}>remove</button>
+      </div>
     )
   }
 }
