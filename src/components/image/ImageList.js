@@ -42,8 +42,8 @@ class ImageList extends Component {
       <div className='container-images'>
         <div className='wrapper-images'>{ imagesInDb } </div>
         <div className='wrapper-buttons'>
-          <button onClick={this.getList}> click me </button>
-          <button onClick={()=> this.setState({list:''})}> Rensa </button>
+           <button onClick={this.getList}> { !showList ? 'Öppna Lista' : 'Stäng Lista'}</button>
+          
         </div>
       </div>
     )

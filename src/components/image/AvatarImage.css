@@ -1,0 +1,9 @@
+.container-AvatarImage {
+  position: relative;
+}
+.container-AvatarImage > button {
+  position: absolute;
+  right:0;
+  top: 25px;
+  z-index: 100;
+}

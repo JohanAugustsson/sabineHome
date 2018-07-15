@@ -20,5 +20,9 @@
 
 .container-images .wrapper-buttons {
   position: absolute;
-  
+  display: flex;
+  right: 0;
+  top: -10;
+  flex-direction: column;
+  z-index: 100;
 }

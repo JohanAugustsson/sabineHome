@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { saveCakeToDb,saveFileToDb } from '../../actions/cakeActions';
 import AvatarImageCropper from 'react-avatar-image-cropper';
 import ImageList from '../image/ImageList';
+import './AvatarImage.css'
 
 class AvatarImage extends Component {
   state = {
@@ -29,13 +30,13 @@ class AvatarImage extends Component {
   render(){
     const { url } = this.state;
     return(
-      <div>
+      <div className='container-AvatarImage'>
         <ImageList setImage={this.setImage}/>
         <div style={{ width: '250px', height: '250px', margin: 'auto' }}>
            { !url && <AvatarImageCropper apply={this.apply} />}
            { url && <img src={url} height='250px' width='250px' /> }
          </div>
-       <button onClick={()=> this.setState({url:''})}>remove</button>
+        <button onClick={()=> this.setState({url:''})}>remove</button>
       </div>
     )
   }
