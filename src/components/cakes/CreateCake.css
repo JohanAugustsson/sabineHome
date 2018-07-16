@@ -3,3 +3,34 @@
   flex-direction: column;
   padding: 3em;
 }
+.container-CreateCake .main{
+  display: flex;
+  flex-direction: row;
+  padding: 3em;
+}
+.container-CreateCake .main .text{
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  flex: 3;
+}
+.container-CreateCake .main .text label{
+  display: flex;
+  flex-direction: column
+}
+.container-CreateCake .main .text textarea{
+  height: 200px;
+}
+
+
+.container-CreateCake .howToCook{
+  display: flex;
+  flex-direction: row;
+  padding: 3em;
+}
+.container-CreateCake .howToCook .text{
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  flex: 3;
+}

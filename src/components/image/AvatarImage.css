@@ -1,5 +1,6 @@
 .container-AvatarImage {
   position: relative;
+  overflow: auto;
 }
 .container-AvatarImage > button {
   position: absolute;

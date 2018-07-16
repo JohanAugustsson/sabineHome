@@ -4,18 +4,22 @@
   justify-content: center;
 }
 
-
 .container-images {
   display: flex;
+  align-content: center;
   position: relative;
-  flex-direction: column;
+  flex-direction: row;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 .container-images .wrapper-images {
   display: flex;
-  position: absolute;
-  flex-direction: column;
+  flex-direction: row;
+  overflow: auto;
   top: -200px;
-  right: 200px;
+
 }
 
 .container-images .wrapper-buttons {

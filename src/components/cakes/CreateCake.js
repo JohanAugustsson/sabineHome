@@ -65,19 +65,29 @@ class CreateCake extends Component {
     return(
       <div className='container-CreateCake'>
 
-        <label>Titel <input type='text' /></label>
-        <label>Beskrivning <textarea cols='40' row='5' /></label>
         <label>Ingridiens <input type='text' /><input type='text'/></label>
-        <label>Så här gör du <input type='text' /></label>
+
         <label>Ytterligare information <input type='text' /></label>
         <label>slutfras <input type='text' /></label>
 
         <button onClick={this.handelSave}> Spara </button>
 
-        <div style={{width: 250}}>
-         <AvatarImage />
+        <div className='main'>
+          <AvatarImage size={{height:'300px',width:'400px', margin: 'auto'}}/>
+          <div className='text'>
+            <label>Titel <input type='text' /></label>
+            <label>Beskrivning <textarea cols='40' row='15' /></label>
+          </div>
         </div>
-         <AvatarImage />
+
+
+        <AvatarImage size={{height:'100px',width:'100px', margin: 'auto'}}/>
+        <div className='howToCook'>
+          <div className='text'>
+            <label>Så här gör du <input type='text' /></label>
+          </div>
+        </div>
+
 
       </div>
     );

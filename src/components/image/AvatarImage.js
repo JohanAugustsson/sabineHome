@@ -29,12 +29,14 @@ class AvatarImage extends Component {
 
   render(){
     const { url } = this.state;
+    const size = this.props;
+    console.log('storlek:',size.size);
     return(
       <div className='container-AvatarImage'>
         <ImageList setImage={this.setImage}/>
-        <div style={{ width: '250px', height: '250px', margin: 'auto' }}>
+        <div style={size.size}>
            { !url && <AvatarImageCropper apply={this.apply} />}
-           { url && <img src={url} height='250px' width='250px' /> }
+           { url && <img src={url} height='100%' width='100%' /> }
          </div>
         <button onClick={()=> this.setState({url:''})}>remove</button>
       </div>
