@@ -12,8 +12,8 @@ class MainNavBar extends Component {
         </div>
         <ul>
           <li><NavLink to ='/'>Home</NavLink></li>
-          <li><NavLink to ='/profile'>Profile</NavLink></li>
-          <li><NavLink to ='/create-cake'>Create</NavLink></li>
+          {/* <li><NavLink to ='/profile'>Profile</NavLink></li>
+          <li><NavLink to ='/create-cake'>Create</NavLink></li> */}
         </ul>
       </div>
     )
