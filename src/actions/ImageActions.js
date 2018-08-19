@@ -18,7 +18,6 @@ const getListOfImages = () => async (dispatch) => {
     dispatch(fetchImage(false));
     return dispatch(fetchedImage(newList))
   });
-  return newList;
 }
 
 

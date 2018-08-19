@@ -6,6 +6,9 @@ body {
   font-family: sans-serif;
   box-sizing: border-box;
   color: #373737;
+  background: url("https://firebasestorage.googleapis.com/v0/b/sabinehomepage.appspot.com/o/plywood.jpg?alt=media&token=13d38e48-d0b2-49f0-97d0-73f1cd6d8d7d");
+  background-repeat: repeat-x;
+  background-attachment: fixed;
 }
 
 

@@ -2,15 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
-import { NavLink } from 'react-router-dom';
-import { getCakesFromDB } from '../../actions/cakeActions'
 import CakeView from '../../components/cakes/CakeView'
 
 class HomePage extends React.Component{
-  constructor(props){
-    super(props);
-    //props.dispatch(getCakesFromDB())
-  }
 
   goToPage = (event,id) =>{
     this.props.history.push(`cake/${id}`);

@@ -1,9 +1,11 @@
 .container-AvatarImage {
   position: relative;
   overflow: auto;
+  border: 1px solid blueviolet;
+  margin: 4px;
+  padding-top: 2rem;
 }
 .container-AvatarImage > button {
-  position: absolute;
   right:0;
   top: 25px;
   z-index: 100;

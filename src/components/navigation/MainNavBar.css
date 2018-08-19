@@ -1,6 +1,9 @@
 .container-mainnavbar {
   display: flex;
   flex-wrap: nowrap;
+  max-width: 1200px;
+  margin:auto;
+  background-color: #ffffff87;
 }
 
 .container-mainnavbar div{

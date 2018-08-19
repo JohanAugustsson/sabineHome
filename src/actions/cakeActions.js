@@ -3,28 +3,17 @@ const cakesList = require('../mock/cakes');
 
 // setup action and reducer
 export const CAKE_LOADED = 'CAKE_LOADED';
-
+export const UPDATE_NEWCAKE = 'UPDATE_NEWCAKE'
 // setup path
 export const IMAGE_URL_PATH = 'images/RCpdAxXTbu5mMlM2eRrC';
 
-function resolveAfter2Seconds() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve('resolved');
-    }, 2000);
-  });
-}
+
 
 
 const getCakesFromDB = () => async (dispatch) => {
-  await resolveAfter2Seconds();
   return dispatch({type: CAKE_LOADED, payload: cakesList  });
 }
 
-const addUrlToListOfImages = (url) => {
-
-
-}
 
 const saveCakeToDb = (cake) => async (dispatch) => {
 
@@ -61,6 +50,9 @@ const saveFileToDb = (file) => async (dispatch) => {
 }
 
 
+export const updateNewCake = (payload) => async (dispatch) => {
+  return dispatch({type: UPDATE_NEWCAKE, payload})
+}
 
 
 

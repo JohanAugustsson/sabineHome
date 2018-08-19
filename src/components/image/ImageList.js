@@ -1,11 +1,8 @@
 import React,{ Component } from 'react';
-import { getListOfImages } from '../../actions/ImageActions'
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import './ImageList.css';
-
-
 
 class ImageList extends Component {
   state = {
@@ -15,11 +12,12 @@ class ImageList extends Component {
   }
 
   getList = () =>{
-    const { dispatch , images } = this.props;
     this.setState({showList: !this.state.showList})
-    // if(!images.fetched){
-    //   dispatch(getListOfImages())
-    // }
+  }
+
+  handleSelectImg = (imgUrl) => {
+    this.setState({ showList: false })
+    this.props.setImage( imgUrl )
   }
 
   showList = () => {
@@ -27,7 +25,7 @@ class ImageList extends Component {
 
     return Object.values(list).map( image => (
       <div className='dbImage' key={image.id}>
-        <img src={image.url} height={'100px'} width={'100px'} onClick={()=>this.props.setImage(image.url)}/>
+        <img src={image.url} alt="list of images" height={'100px'} width={'100px'} onClick={ ()=> this.handleSelectImg(image.url) }/>
         <button onClick={ () =>{console.log('remove from database', image.id) }}> Remove from db </button>
       </div>
     ))
@@ -62,5 +60,4 @@ const listenersFirestore = (props) => ([
 
 export default compose (
   firestoreConnect(listenersFirestore),
-  connect(mapStateToProps))
-  (ImageList)
+  connect(mapStateToProps))(ImageList)
